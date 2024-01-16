@@ -1,47 +1,57 @@
+// Selecting DOM elements
 const inputBox = document.querySelector('#input-box');
-const listContainer = document.querySelector ('#list-Container');
+const listContainer = document.querySelector('#list-container'); // Corrected typo in id
 
-function addTask(){
-if(inputBox.value===''){
-    alert("You must write something!")
-}else{
-    let li = document.createElement('li');
-    li.innerHTML=inputBox.value;
-    listContainer.appendChild(li);
-    
-    
-    let span = document.createElement("span");
-    span.innerHTML= "\u00d7 ";
-    li.appendChild(span);
-}
-inputBox.value='';
-saveData();
+// Function to add a task
+function addTask() {
+    if (inputBox.value === '') {
+        alert("You must write something!");
+    } else {
+        // Create a new list item
+        let li = document.createElement('li');
+        li.innerHTML = inputBox.value;
 
-}
+        // Create a span for the delete button
+        let span = document.createElement("span");
+        span.innerHTML = "\u00d7 ";
 
-// function for selecting completed task and deleting task
-listContainer.addEventListener("click", function(e){
-if(e.target.tagName === "LI"){
-    e.target.classList.toggle("checked");
-}else if(e.target.tagName === "SPAN"){
-    e.target.parentElement.remove();
+        // Append the span to the list item
+        li.appendChild(span);
+
+        // Append the list item to the list container
+        listContainer.appendChild(li);
+    }
+
+    // Clear the input box after adding a task
+    inputBox.value = '';
+
+    // Save data to local storage
     saveData();
-   
 }
 
-},false);
+// Event listener for selecting completed task and deleting task
+listContainer.addEventListener("click", function (e) {
+    if (e.target.tagName === "LI") {
+        // Toggle the 'checked' class for completed tasks
+        e.target.classList.toggle("checked");
+    } else if (e.target.tagName === "SPAN") {
+        // Remove the parent list item when the delete button is clicked
+        e.target.parentElement.remove();
 
-// storing data on website and display it
+        // Save data to local storage after deletion
+        saveData();
+    }
+}, false);
 
-function saveData(){
+// Function to save data to local storage
+function saveData() {
     localStorage.setItem("data", listContainer.innerHTML);
 }
 
-function showTask(){
-    listContainer.innerHTML=localStorage.getItem("data");
+// Function to display tasks from local storage
+function showTask() {
+    listContainer.innerHTML = localStorage.getItem("data");
 }
 
+// Initial display of tasks on page load
 showTask();
-
-
-
