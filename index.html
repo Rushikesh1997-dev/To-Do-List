@@ -1,41 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+    <!-- Link to external stylesheet -->
     <link rel="stylesheet" href="Todo.css">
-<title>Todo List</title>
+    <!-- Set the title of the document -->
+    <title>Todo List</title>
 </head>
+
 <body>
-<div class="container">
-    <div class="todo-app"><h2>
-    <img src="images/icon.png">To-Do List</img></h2>
+    <!-- Main container for the Todo List -->
+    <div class="container">
+        <!-- Todo App section -->
+        <div class="todo-app">
+            <!-- Todo App title with an image -->
+            <h2>
+                <img src="images/icon.png">To-Do List</img>
+            </h2>
 
+            <!-- Row for input and add button -->
+            <div class="row">
+                <!-- Input box for adding tasks -->
+                <input type="text" id="input-box" placeholder="Type here">
+                <!-- Button to add tasks, calls the addTask() function -->
+                <button onClick="addTask()">Add</button>
+            </div>
 
-<div class="row">
-
-<input type="text" id="input-box" placeholder="Type here">
-<button onClick="addTask()">Add</button>
- </div>
-<ul id="list-Container">
-<!--<li class="checked"><b>Task 1</b></li>
-<li><b>Task 2</b></li>
-<li><b>Task 3</b></li>
-<li><b>Task 1</b></li>
-<li><b>Task 2</b></li>
-<li><b>Task 3</b></li>-->
-</ul> 
-    
-    
-    
+            <!-- List container for displaying tasks -->
+            <ul id="list-Container">
+                <!-- Sample list items (commented out) -->
+                <!--<li class="checked"><b>Task 1</b></li>
+                <li><b>Task 2</b></li>
+                <li><b>Task 3</b></li>
+                <li><b>Task 1</b></li>
+                <li><b>Task 2</b></li>
+                <li><b>Task 3</b></li>-->
+            </ul>
+        </div>
     </div>
-</div>  
 
-
-
-
-
-
-
-<script src="Todo javascript.js"></script>
-    
+    <!-- Include external JavaScript file for Todo functionality -->
+    <script src="Todo javascript.js"></script>
 </body>
+
 </html>
